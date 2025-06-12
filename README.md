@@ -1,2 +1,0 @@
-# notification
-notification service
