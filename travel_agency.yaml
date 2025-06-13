@@ -17,9 +17,15 @@
 # credentials: root/password
 ##################################################################################################
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: travel-agency
+---
+apiVersion: v1
 kind: Secret
 metadata:
   name: mysql-credentials
+  namespace: travel-agency
 type: Opaque
 data:
   rootpasswd: cGFzc3dvcmQ=
@@ -30,6 +36,7 @@ metadata:
   name: mysqldb
   labels:
     app: mysqldb
+  namespace: travel-agency
 spec:
   ports:
     - port: 3306
@@ -44,6 +51,7 @@ metadata:
   labels:
     app: mysqldb
     version: v1
+  namespace: travel-agency
 spec:
   replicas: 1
   selector:
@@ -83,6 +91,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: cars-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -155,6 +164,7 @@ metadata:
   name: cars
   labels:
     app: cars
+  namespace: travel-agency
 spec:
   ports:
     - name: http
@@ -169,6 +179,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: discounts-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -228,6 +239,7 @@ metadata:
   name: discounts
   labels:
     app: discounts
+  namespace: travel-agency
 spec:
   ports:
     - name: http
@@ -242,6 +254,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: flights-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -314,6 +327,7 @@ metadata:
   name: flights
   labels:
     app: flights
+  namespace: travel-agency
 spec:
   ports:
     - name: http
@@ -328,6 +342,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: hotels-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -400,6 +415,7 @@ metadata:
   name: hotels
   labels:
     app: hotels
+  namespace: travel-agency
 spec:
   ports:
     - name: http
@@ -414,6 +430,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: insurances-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -468,6 +485,7 @@ metadata:
   name: insurances
   labels:
     app: insurances
+  namespace: travel-agency
 spec:
   ports:
     - name: http
@@ -482,6 +500,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: travels-v1
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:
@@ -549,6 +568,7 @@ metadata:
   name: travels
   labels:
     app: travels
+  namespace: travel-agency
 spec:
   ports:
     - name: http
