@@ -13,7 +13,7 @@ spec:
     matchLabels:
       app: control
       version: v1
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       annotations:
