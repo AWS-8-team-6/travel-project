@@ -2,17 +2,19 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: travel-control
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: travel-control
+  labels:
+    app.kubernetes.io/name: travel-control
+    app.kubernetes.io/instance: travel-control
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: control
   namespace: travel-control
+  labels:
+    app.kubernetes.io/name: travel-control
+    app.kubernetes.io/instance: travel-control
+
 spec:
   selector:
     matchLabels:
@@ -50,6 +52,9 @@ metadata:
   name: control
   labels:
     app: control
+    app.kubernetes.io/name: travel-control
+    app.kubernetes.io/instance: travel-control
+
   namespace: travel-control
 spec:
   ports:

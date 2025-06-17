@@ -20,6 +20,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 ---
 apiVersion: v1
 kind: Secret
@@ -36,7 +39,10 @@ metadata:
   name: mysqldb
   labels:
     app: mysqldb
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
+
 spec:
   ports:
     - port: 3306
@@ -50,6 +56,8 @@ metadata:
   name: mysqldb-v1
   labels:
     app: mysqldb
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
     version: v1
   namespace: travel-agency
 spec:
@@ -92,6 +100,9 @@ apiVersion: apps/v1
 metadata:
   name: cars-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -164,6 +175,8 @@ metadata:
   name: cars
   labels:
     app: cars
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
@@ -180,6 +193,9 @@ apiVersion: apps/v1
 metadata:
   name: discounts-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -239,6 +255,8 @@ metadata:
   name: discounts
   labels:
     app: discounts
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
@@ -255,6 +273,9 @@ apiVersion: apps/v1
 metadata:
   name: flights-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -327,6 +348,8 @@ metadata:
   name: flights
   labels:
     app: flights
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
@@ -343,6 +366,9 @@ apiVersion: apps/v1
 metadata:
   name: hotels-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -415,6 +441,8 @@ metadata:
   name: hotels
   labels:
     app: hotels
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
@@ -431,6 +459,9 @@ apiVersion: apps/v1
 metadata:
   name: insurances-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -485,6 +516,8 @@ metadata:
   name: insurances
   labels:
     app: insurances
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
@@ -501,6 +534,9 @@ apiVersion: apps/v1
 metadata:
   name: travels-v1
   namespace: travel-agency
+  labels:
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
 spec:
   selector:
     matchLabels:
@@ -568,6 +604,8 @@ metadata:
   name: travels
   labels:
     app: travels
+    app.kubernetes.io/name: travel-agency
+    app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
 spec:
   ports:
