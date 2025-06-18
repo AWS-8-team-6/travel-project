@@ -76,6 +76,13 @@ spec:
         - name: mysqldb
           image: quay.io/kiali/demo_travels_mysqldb:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 3306
           env:
@@ -139,6 +146,13 @@ spec:
         - name: cars
           image: quay.io/kiali/demo_travels_cars:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -232,6 +246,13 @@ spec:
         - name: discounts
           image: quay.io/kiali/demo_travels_discounts:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -312,6 +333,13 @@ spec:
         - name: flights
           image: quay.io/kiali/demo_travels_flights:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -405,6 +433,13 @@ spec:
         - name: hotels
           image: quay.io/kiali/demo_travels_hotels:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -480,6 +515,13 @@ spec:
         - name: insurances
           image: quay.io/kiali/demo_travels_insurances:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -573,6 +615,13 @@ spec:
         - name: travels
           image: quay.io/kiali/demo_travels_travels:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:

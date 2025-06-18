@@ -33,6 +33,14 @@ spec:
         - name: control
           image: quay.io/kiali/demo_travels_control:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "200Mi"
+            limits:
+              cpu: "1500m"
+              memory: "1000Mi"
+
           ports:
             - containerPort: 8080
           securityContext:

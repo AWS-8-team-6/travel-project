@@ -50,6 +50,13 @@ spec:
         - name: voyages
           image: quay.io/kiali/demo_travels_portal:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -131,6 +138,13 @@ spec:
         - name: control
           image: quay.io/kiali/demo_travels_portal:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -212,6 +226,13 @@ spec:
         - name: control
           image: quay.io/kiali/demo_travels_portal:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "10Mi"
+            limits:
+              cpu: "100m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
