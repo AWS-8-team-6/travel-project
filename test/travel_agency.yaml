@@ -1,3 +1,4 @@
+```yaml
 ##################################################################################################
 # Mysql db services
 # credentials: root/password
@@ -28,7 +29,6 @@ metadata:
     app.kubernetes.io/name: travel-agency
     app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
-
 spec:
   ports:
     - port: 3306
@@ -76,7 +76,7 @@ spec:
               mountPath: /var/lib/mysql
       volumes:
         - name: var-lib-mysql
-          emptyDir:
+          emptyDir: {}
 ---
 ##################################################################################################
 # Cars services
@@ -127,11 +127,11 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
-              cpu: "20m"
-              memory: "10Mi"
+              cpu: "10m"
+              memory: "5Mi"
             limits:
-              cpu: "60m"
-              memory: "30Mi"
+              cpu: "50m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -225,6 +225,13 @@ spec:
         - name: discounts
           image: quay.io/kiali/demo_travels_discounts:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "5Mi"
+            limits:
+              cpu: "50m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -307,11 +314,11 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
+              cpu: "250m"
+              memory: "50Mi"
+            limits:
               cpu: "500m"
               memory: "100Mi"
-            limits:
-              cpu: "1000m"
-              memory: "205Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -407,11 +414,11 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
-              cpu: "20m"
-              memory: "10Mi"
+              cpu: "10m"
+              memory: "5Mi"
             limits:
-              cpu: "60m"
-              memory: "30Mi"
+              cpu: "50m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -479,6 +486,24 @@ spec:
     metadata:
       annotations:
         readiness.status.sidecar.istio.io/applicationPorts: ""
+        proxy.istio.io/config: |
+          tracing:
+            zipkin:
+              address: zipkin.istio-system:9411
+            sampling: 10
+            custom_tags:
+              http.header.portal:
+                header:
+                  name: portal
+              http.header.device:
+                header:
+                  name: device
+              http.header.user:
+                header:
+                  name: user
+              http.header.travel:
+                header:
+                  name: travel
       labels:
         app: insurances
         version: v1
@@ -487,6 +512,13 @@ spec:
         - name: insurances
           image: quay.io/kiali/demo_travels_insurances:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "5Mi"
+            limits:
+              cpu: "50m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -580,6 +612,13 @@ spec:
         - name: travels
           image: quay.io/kiali/demo_travels_travels:v1
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "5Mi"
+            limits:
+              cpu: "50m"
+              memory: "25Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -621,3 +660,4 @@ spec:
   selector:
     app: travels
 ---
+```
