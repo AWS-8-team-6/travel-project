@@ -28,6 +28,7 @@ metadata:
     app.kubernetes.io/name: travel-agency
     app.kubernetes.io/instance: travel-agency
   namespace: travel-agency
+
 spec:
   ports:
     - port: 3306
@@ -129,8 +130,8 @@ spec:
               cpu: "10m"
               memory: "5Mi"
             limits:
-              cpu: "50m"
-              memory: "20Mi"
+              cpu: "30m"
+              memory: "15Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -229,8 +230,8 @@ spec:
               cpu: "10m"
               memory: "5Mi"
             limits:
-              cpu: "50m"
-              memory: "20Mi"
+              cpu: "30m"
+              memory: "15Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -416,8 +417,8 @@ spec:
               cpu: "10m"
               memory: "5Mi"
             limits:
-              cpu: "50m"
-              memory: "20Mi"
+              cpu: "30m"
+              memory: "15Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -498,8 +499,8 @@ spec:
               cpu: "10m"
               memory: "5Mi"
             limits:
-              cpu: "50m"
-              memory: "20Mi"
+              cpu: "30m"
+              memory: "15Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -598,8 +599,8 @@ spec:
               cpu: "10m"
               memory: "5Mi"
             limits:
-              cpu: "50m"
-              memory: "20Mi"
+              cpu: "30m"
+              memory: "15Mi"
           ports:
             - containerPort: 8000
           securityContext:
@@ -640,4 +641,3 @@ spec:
       port: 8000
   selector:
     app: travels
----
